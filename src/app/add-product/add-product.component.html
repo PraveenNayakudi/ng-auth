@@ -1,1 +1,15 @@
-<p>add-product works!</p>
+<div class="row">
+    <div class="col-md-offset-2 col-md-6">
+        <form (ngSubmit)="addProduct(product)" #product="ngForm">
+            <div class="form-group">
+                <label for="product_name">product name</label>
+                <input type="text" id="product_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="product_price">product price</label>
+                <input type="text" id="product_price" class="form-control">
+            </div>
+            <button class="btn btn-primary" type="submit">submit</button>
+        </form>
+    </div>
+</div>
