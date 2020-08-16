@@ -15,18 +15,17 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  Login(userData){
+  Login(userData:NgForm){
     // console.log('login mode')
-    console.log(userData)
-
+    // console.log(userData)
+    this.authService.SignIn(userData.value.user_name, userData.value.password)
+    userData.reset()
   }
-  // Logout(userData){
-  //   console.log('LogOut')
-  // }
-  SignUp(userData){
-    // console.log('sign up')
-    console.log(userData)
-    this.authService.SignUp(userData.value.user_name, userData.value.password)
 
+  SignUp(userData:NgForm){
+    // console.log('sign up')
+    // console.log(userData)
+    this.authService.SignUp(userData.value.user_name, userData.value.password)
+    userData.reset()
   }
 }

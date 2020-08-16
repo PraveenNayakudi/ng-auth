@@ -4,12 +4,13 @@ import { ShopComponent } from './shop/shop.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 
 const routes: Routes = [
   {path:'shop', component:ShopComponent},
-  {path:'admin', component:AdminComponent},
-  {path:'add-product', component:AddProductComponent},
+  {path:'admin', component:AdminComponent, canActivate:[AuthGuardService]},
+  {path:'add-product', component:AddProductComponent, canActivate:[AuthGuardService]},
   {path:'auth', component:AuthComponent},
 ];
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,17 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLoginMode:boolean = true;
-  constructor() { }
+  isAuthenticated:boolean = false;
+  constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit(): void {
+    this.authService.user.subscribe(
+      user=>{
+       this.isAuthenticated = !!user;
+      }
+    )
   }
   
-  login(){
-    console.log('login')
-  }
-  logout(){
-    console.log('logout')
-
+  Logout(){
+  this.authService.Logout()
   }
 }

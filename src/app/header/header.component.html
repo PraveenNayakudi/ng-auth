@@ -20,7 +20,8 @@
         </ul>
        
         <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="auth" style="cursor:pointer">{{isLoginMode? 'Login':'Logout'}}</a></li>
+          <li><a *ngIf="!isAuthenticated" routerLink="auth" style="cursor:pointer" >Log In</a></li>
+          <li><a  *ngIf="isAuthenticated" style="cursor:pointer" (click)="Logout()">Log Out</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
